@@ -1,0 +1,14 @@
+body {
+  background-image: url(../img/full_yan.png);
+  background-color: black;
+  color: white;
+  background-repeat: no-repeat;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.how-dare-you {
+  text-align: center;
+  color: red;
+  white-space: pre-wrap;
+}
