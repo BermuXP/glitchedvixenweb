@@ -1,4 +1,4 @@
-const text = "You where looking at other Foxes weren't you?... don't worry... I'll make sure your heart will stay with me forever...";
+const text = "You where looking for other foxes weren't you?... don't worry... I'll make sure your heart will stay with me forever...";
 let index = 0;
 
 
