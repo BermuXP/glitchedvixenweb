@@ -85,6 +85,10 @@ button.btn {
   color: red;
 }
 
+.red-button {
+  background: red !important;
+}
+
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-2px); }

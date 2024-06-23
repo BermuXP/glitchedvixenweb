@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const sceneOverview = document.getElementById('scene-overview');
   sceneOverview.onclick = () => showScenes();
 
-  const startGameButton =   document.getElementById('start-game');
+  const startGameButton = document.getElementById('start-game');
   startGameButton.onclick = () => startGame();
 
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
       text: "I guess you're worthless to me after all...",
       class: ["sideways-text", 'red'],
       choices: [
-        { text: "Continue", nextScene: 6 }
+        { text: "Continue", nextScene: 6, class: ['red-button'] }
       ]
     },
 
@@ -142,41 +142,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Check if scene.class exists and is an array, then apply each class
     if (Array.isArray(scene.class)) {
-        scene.class.forEach(className => {
-            dialogueText.classList.add(className);
-        });
+      scene.class.forEach(className => {
+        dialogueText.classList.add(className);
+      });
     }
 
     // Function to simulate typing effect
     function typeText(text, index, onComplete) {
-        if (index < text.length) {
-            let char = text.charAt(index);
-            if (effect === 'shake') {
-                let span = document.createElement('span');
-                span.textContent = char;
-                dialogueText.appendChild(span);
-                dialogueText.classList.add('shake');
-            } else {
-              dialogueText.textContent += text.charAt(index);
-            }
-            typeSound.play();
-            setTimeout(() => typeText(text, index + 1, onComplete), 80);
-        } else if (onComplete) {
-            onComplete();
+      if (index < text.length) {
+        let char = text.charAt(index);
+        if (effect === 'shake') {
+          let span = document.createElement('span');
+          span.textContent = char;
+          dialogueText.appendChild(span);
+          dialogueText.classList.add('shake');
+        } else {
+          dialogueText.textContent += text.charAt(index);
         }
+        typeSound.play();
+        setTimeout(() => typeText(text, index + 1, onComplete), 80);
+      } else if (onComplete) {
+        onComplete();
+      }
     }
 
     // Function to create and append choice buttons
     function createChoiceButtons() {
-        scene.choices.forEach(choice => {
-            const button = document.createElement('button');
-            button.textContent = choice.text;
-            button.onclick = () => showScene(choice.nextScene);
-            choices.appendChild(button);
-        });
+      scene.choices.forEach(choice => {
+        const button = document.createElement('button');
+        button.textContent = choice.text;
+        button.onclick = () => showScene(choice.nextScene);
+
+        // Check if the choice has a class property
+        if (choice.class) {
+          if (Array.isArray(choice.class)) {
+            // If class is an array, add each class to the button
+            choice.class.forEach(className => {
+              button.classList.add(className);
+            });
+          } else {
+            // If class is not an array, directly add it
+            button.classList.add(choice.class);
+          }
+        }
+
+        choices.appendChild(button);
+      });
     }
 
     // Start typing effect and create buttons after it's done
     typeText(scene.text, 0, createChoiceButtons);
-}
+  }
 });
