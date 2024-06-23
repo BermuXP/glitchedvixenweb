@@ -1,6 +1,5 @@
-const text = "You where looking for other foxes weren't you?... don't worry... I'll make sure your heart will stay with me forever...";
+const text = "You were looking for other foxes weren't you?... don't worry... I'll make sure your heart will stay with me forever...";
 let index = 0;
-
 
 function typeWriter() {
     if (index < text.length) {

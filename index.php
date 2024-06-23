@@ -2,7 +2,7 @@
 
 <div class='container'>
     <div class='top-div'>
-        <h1 class='header'>GlitchedVixen is a <s>bully</s> VERY NICE <s>CAT</s> FOX! (Might actually be a dog)</h1>
+        <h1 class='header'>GlitchedVixen is a <s>bully</s> VERY NICE CAT!</h1>
         <h1 class='sub-header'>So check out: </h1>
         <div class='button-row'>
             <a class='button twitch' href='https://www.twitch.tv/glitchedvixen'>Twitch</a>
