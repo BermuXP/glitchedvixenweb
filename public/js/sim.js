@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     {
       who: "???",
-      text: "Every man I send to that world, just ends up being killed by her...",
+      text: "Every man I send to that world, just ends up being hunted and killed by her...",
       class: ["sideways-text"],
       choices: [
         { text: "Continue", nextScene: 5 }
@@ -90,6 +90,14 @@ document.addEventListener('DOMContentLoaded', function () {
       ]
     },
 
+    {
+      who: "",
+      text: "TO BE CONTINUED :( Im sorry I didnt get this far yet",
+      class: ["sideways-text"],
+      choices: [
+        { text: "Restart", nextScene: 0 }
+      ]
+    },
   ];
 
   function showScenes() {
